@@ -21,7 +21,9 @@ function App() {
     }
 
     getData().then((data) => {
-      console.log(data);
+      setTemp(data.current.temp_c);
+      setHumidity(data.current.humidity);
+      setDescription(data.current.condition.text);
     });
   }, [city]);
 
