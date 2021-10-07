@@ -25,7 +25,12 @@ function App() {
       setHumidity(obj.humidity);
       setDescription(obj.description);
     });
+    weather.getWeatherForecastForDays(3, function(err, obj){
+      console.log(obj);
+    });
   }, [city]);
+
+ 
 
   return (
     <div>
