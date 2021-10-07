@@ -8,7 +8,7 @@ import WeatherToday from "./components/weatherToday";
 const apiKey = "f70ad6074fa13b00157e997a81cc4525";
 
 function App() {
-  const [city, setCity] = useState("Minsk");
+  const [city, setCity] = useState(localStorage.getItem("city") || "Minsk");
   const [temp, setTemp] = useState(null);
   const [humidity, setHumidity] = useState(null);
   const [description, setDescription] = useState("");
@@ -18,12 +18,7 @@ function App() {
   weather.setAPPID(apiKey);
 
   useEffect(() => {
-    if (localStorage.getItem("city") !== null) {
-      setCity(localStorage.getItem("city"));
-      weather.setCity(localStorage.getItem("city"));
-    } else {
-      weather.setCity(city);
-    }
+    weather.setCity(city);
 
     weather.getSmartJSON(function (err, obj) {
       setTemp(obj.temp);
