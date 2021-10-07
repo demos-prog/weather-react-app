@@ -2,6 +2,7 @@ import { ButtonGroup, Button, Box } from "@material-ui/core";
 
 export default function ButtonsGroup({ setCity }) {
   function handleChangeCity(e) {
+    localStorage.setItem("city", e.target.value);
     setCity(e.target.value);
   }
 

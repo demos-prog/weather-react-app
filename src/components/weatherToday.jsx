@@ -1,6 +1,12 @@
 import "./WeatherToday.css";
 
-export default function WeatherToday({ city, temp, humidity, description }) {
+export default function WeatherToday({
+  city,
+  temp,
+  humidity,
+  description,
+}) {
+ 
   return (
     <div className="wrapperWeatherToday">
       <div className="contetntWeatherToday">
