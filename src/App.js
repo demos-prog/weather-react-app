@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import * as weather from "openweather-apis";
 import "./null_styles.css";
 import "./App.css";
 import ButtonsGroup from "./components/buttonsGroup";
 import WeatherToday from "./components/weatherToday";
 
-const apiKey = "f70ad6074fa13b00157e997a81cc4525";
+const apiKey = "9e6fddaaf5b8444ab06132321210710";
 
 function App() {
   const [city, setCity] = useState(localStorage.getItem("city") || "Minsk");
@@ -13,24 +12,18 @@ function App() {
   const [humidity, setHumidity] = useState(null);
   const [description, setDescription] = useState("");
 
-  weather.setLang("en");
-  weather.setUnits("metric");
-  weather.setAPPID(apiKey);
-
   useEffect(() => {
-    weather.setCity(city);
+    async function getData() {
+      let res = await fetch(
+        `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`
+      );
+      return await res.json();
+    }
 
-    weather.getSmartJSON(function (err, obj) {
-      setTemp(obj.temp);
-      setHumidity(obj.humidity);
-      setDescription(obj.description);
-    });
-    weather.getWeatherForecastForDays(3, function(err, obj){
-      console.log(obj);
+    getData().then((data) => {
+      console.log(data);
     });
   }, [city]);
-
- 
 
   return (
     <div>
