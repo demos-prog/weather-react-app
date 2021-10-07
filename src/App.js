@@ -3,6 +3,7 @@ import * as weather from "openweather-apis";
 import ButtonsGroup from "./components/buttonsGroup";
 import "./null_styles.css";
 import "./App.css";
+import WeatherToday from "./components/weatherToday";
 
 const apiKey = "f70ad6074fa13b00157e997a81cc4525";
 
@@ -19,17 +20,26 @@ function App() {
   useEffect(() => {
     weather.setCity(city);
 
-    weather.getSmartJSON(function (err, smart) {
-      setTemp(smart.temp);
-      setHumidity(smart.humidity);
-      setDescription(smart.description);
+    weather.getSmartJSON(function (err, obj) {
+      setTemp(obj.temp);
+      setHumidity(obj.humidity);
+      setDescription(obj.description);
     });
   }, [city]);
 
   return (
     <div>
-      <ButtonsGroup setCity={setCity}/>
-      {temp}
+      <main>
+        <ButtonsGroup setCity={setCity} />
+        <div className="contentWrapper">
+          <WeatherToday
+            city={city}
+            temp={temp}
+            humidity={humidity}
+            description={description}
+          />
+        </div>
+      </main>
     </div>
   );
 }
