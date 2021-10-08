@@ -14,6 +14,7 @@ function App() {
   const [humidity, setHumidity] = useState(null);
   const [description, setDescription] = useState("");
   const [forecast, setForcast] = useState([]);
+  const [url, setUrl] = useState("/in/" + city);
 
   useEffect(() => {
     async function getData() {
@@ -33,14 +34,18 @@ function App() {
   return (
     <Router>
       <header>
-        <Link className="link" to="/">Home</Link>
-        <Link className="link" to="/in">Advanced forecast</Link>
+        <Link className="link" to="/">
+          Home
+        </Link>
+        <Link className="link" to={url}>
+          Advanced forecast
+        </Link>
       </header>
       <main>
         <Switch>
-          <Route path="/in"></Route>
+          <Route path={url}></Route>
           <Route path="/">
-            <ButtonsGroup setCity={setCity} />
+            <ButtonsGroup setUrl={setUrl} setCity={setCity} />
             <WeatherToday
               city={city}
               temp={temp}
