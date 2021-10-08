@@ -55,7 +55,7 @@ function App() {
         </div>
         <Switch>
           <Route path={url}>
-            <AdvancedForecast />
+            <AdvancedForecast apiKey={apiKey}/>
           </Route>
           <Route path="/">
             <ButtonsGroup setUrl={setUrl} setCity={setCity} />
