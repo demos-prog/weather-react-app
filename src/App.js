@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import "./null_styles.css";
 import "./App.css";
 import ButtonsGroup from "./components/buttonsGroup";
-import WeatherToday from "./components/weatherToday";
 import Forecast from "./components/forecast";
+import WeatherToday from "./components/weatherToday";
 
 const apiKey = "9e6fddaaf5b8444ab06132321210710";
 
