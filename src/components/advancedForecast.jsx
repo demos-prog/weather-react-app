@@ -13,14 +13,19 @@ export default function AdvancedForecast({ apiKey }) {
       let res = await fetch(
         `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${newCity}&days=3`
       );
-      return await res.json();
+      if (res.ok) {
+        return await res.json();
+      }
     }
+
     getData().then((data) => {
-      setForcast(data.forecast.forecastday);
+      if (data) {
+        setForcast(data.forecast.forecastday);
+      }
     });
   }, [newCity, apiKey]);
 
-  function handleSubmit(e) {
+  function eHandleSubmit(e) {
     e.preventDefault();
     setNewCity(
       inputValue.slice(0, 1).toUpperCase() +
@@ -32,9 +37,9 @@ export default function AdvancedForecast({ apiKey }) {
   return (
     <div id="wrp">
       <h1>{newCity}</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={eHandleSubmit}>
         <TextField
-          style={{margin: 20}}
+          style={{ margin: 20 }}
           onChange={(e) => setInputValue(e.target.value)}
           value={inputValue}
           label="Enter the name of the city"

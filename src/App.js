@@ -22,13 +22,18 @@ function App() {
       let res = await fetch(
         `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`
       );
-      return await res.json();
+      if (res.ok) {
+        return await res.json();
+      }
     }
+
     getData().then((data) => {
-      setTemp(data.current.temp_c);
-      setHumidity(data.current.humidity);
-      setDescription(data.current.condition.text);
-      setForcast(data.forecast.forecastday);
+      if (data) {
+        setTemp(data.current.temp_c);
+        setHumidity(data.current.humidity);
+        setDescription(data.current.condition.text);
+        setForcast(data.forecast.forecastday);
+      }
     });
   }, [city]);
 
