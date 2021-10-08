@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 export default function AdvancedForecast() {
-  console.log(window.location.pathname.slice(1));
-  return <div></div>;
+  const [newCity, setNewCity] = useState(window.location.pathname.slice(1));
+
+  return <div>{newCity}</div>;
 }
