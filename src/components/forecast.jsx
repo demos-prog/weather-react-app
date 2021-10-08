@@ -10,10 +10,18 @@ export default function Forecast({ forecast }) {
         {forecast.map((day) => {
           return (
             <div className="forecastDayWrapper" key={nanoid()}>
-              <div>Date: {day.date}</div>
-              <div>Max temperature: {day.day.maxtemp_c} &deg;C</div>
-              <div>Min temperature: {day.day.mintemp_c} &deg;C</div>
-              <div>Chance of rain: {day.day.daily_chance_of_rain} %</div>
+              <div>
+                Date: <b>{day.date}</b>
+              </div>
+              <div>
+                Max temperature: <b>{day.day.maxtemp_c} &deg;C</b>
+              </div>
+              <div>
+                Min temperature: <b>{day.day.mintemp_c} &deg;C</b>
+              </div>
+              <div>
+                Chance of rain: <b>{day.day.daily_chance_of_rain} %</b>
+              </div>
             </div>
           );
         })}

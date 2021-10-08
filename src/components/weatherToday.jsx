@@ -9,9 +9,15 @@ export default function WeatherToday({ city, temp, humidity, description }) {
           <h1>{city}</h1>
         </div>
         <div>
-          <h2>{description}</h2>
-          <div>temperature: {temp} &deg;C</div>
-          <div>humidity: {humidity} RH</div>
+          <h2>
+            <b>{description}</b>
+          </h2>
+          <div>
+            temperature: <b>{temp} &deg;C</b>
+          </div>
+          <div>
+            humidity: <b>{humidity} RH</b>
+          </div>
         </div>
       </div>
     </div>
