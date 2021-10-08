@@ -5,6 +5,7 @@ import "./App.css";
 import ButtonsGroup from "./components/buttonsGroup";
 import Forecast from "./components/forecast";
 import WeatherToday from "./components/weatherToday";
+import AdvancedForecast from "./components/advancedForecast";
 
 const apiKey = "9e6fddaaf5b8444ab06132321210710";
 
@@ -14,7 +15,7 @@ function App() {
   const [humidity, setHumidity] = useState(null);
   const [description, setDescription] = useState("");
   const [forecast, setForcast] = useState([]);
-  const [url, setUrl] = useState("/in/" + city);
+  const [url, setUrl] = useState("/" + city);
 
   useEffect(() => {
     async function getData() {
@@ -53,7 +54,9 @@ function App() {
           </a>
         </div>
         <Switch>
-          <Route path={url}></Route>
+          <Route path={url}>
+            <AdvancedForecast />
+          </Route>
           <Route path="/">
             <ButtonsGroup setUrl={setUrl} setCity={setCity} />
             <WeatherToday
