@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./null_styles.css";
 import "./App.css";
 import ButtonsGroup from "./components/buttonsGroup";
@@ -30,18 +31,27 @@ function App() {
   }, [city]);
 
   return (
-    <div>
+    <Router>
+      <header>
+        <Link className="link" to="/">Home</Link>
+        <Link className="link" to="/in">Advanced forecast</Link>
+      </header>
       <main>
-        <ButtonsGroup setCity={setCity} />
-        <WeatherToday
-          city={city}
-          temp={temp}
-          humidity={humidity}
-          description={description}
-        />
-        <Forecast forecast={forecast} />
+        <Switch>
+          <Route path="/in"></Route>
+          <Route path="/">
+            <ButtonsGroup setCity={setCity} />
+            <WeatherToday
+              city={city}
+              temp={temp}
+              humidity={humidity}
+              description={description}
+            />
+            <Forecast forecast={forecast} />
+          </Route>
+        </Switch>
       </main>
-    </div>
+    </Router>
   );
 }
 

@@ -2,7 +2,6 @@ import { nanoid } from "nanoid";
 import "./forecast.css";
 
 export default function Forecast({ forecast }) {
-  console.log(forecast[0]);
   return (
     <div className="forcastWR">
       <h2 className="forecastTitle">Weather forecast</h2>
