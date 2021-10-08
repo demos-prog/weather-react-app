@@ -53,6 +53,14 @@ function App() {
             <AdvancedForecast apiKey={apiKey} />
           </Route>
           <Route path="/">
+            <ButtonsGroup setUrl={setUrl} setCity={setCity} />
+            <WeatherToday
+              city={city}
+              temp={temp}
+              humidity={humidity}
+              description={description}
+            />
+            <Forecast forecast={forecast} />
             <div>
               <a
                 style={{ marginLeft: 50 }}
@@ -63,14 +71,6 @@ function App() {
                 API LINK
               </a>
             </div>
-            <ButtonsGroup setUrl={setUrl} setCity={setCity} />
-            <WeatherToday
-              city={city}
-              temp={temp}
-              humidity={humidity}
-              description={description}
-            />
-            <Forecast forecast={forecast} />
           </Route>
         </Switch>
       </main>
