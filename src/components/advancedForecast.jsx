@@ -15,6 +15,9 @@ export default function AdvancedForecast({ apiKey }) {
       );
       if (res.ok) {
         return await res.json();
+      } else {
+        alert("Invalid request");
+        setNewCity(window.location.pathname.slice(1));
       }
     }
 

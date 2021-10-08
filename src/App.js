@@ -66,7 +66,7 @@ function App() {
                 style={{ marginLeft: 50 }}
                 rel="noreferrer"
                 target="_blank"
-                href="https://www.weatherapi.com/docs/"
+                href="https://www.weatherapi.com"
               >
                 API LINK
               </a>
