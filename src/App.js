@@ -43,21 +43,21 @@ function App() {
         </Link>
       </header>
       <main>
-        <div>
-          <a
-            style={{ marginLeft: 50 }}
-            rel="noreferrer"
-            target="_blank"
-            href="https://www.weatherapi.com/docs/"
-          >
-            API LINK
-          </a>
-        </div>
         <Switch>
           <Route path={url}>
-            <AdvancedForecast apiKey={apiKey}/>
+            <AdvancedForecast apiKey={apiKey} />
           </Route>
           <Route path="/">
+            <div>
+              <a
+                style={{ marginLeft: 50 }}
+                rel="noreferrer"
+                target="_blank"
+                href="https://www.weatherapi.com/docs/"
+              >
+                API LINK
+              </a>
+            </div>
             <ButtonsGroup setUrl={setUrl} setCity={setCity} />
             <WeatherToday
               city={city}

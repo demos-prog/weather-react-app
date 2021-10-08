@@ -1,10 +1,11 @@
 import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
+import { TextField } from "@material-ui/core";
 import "./advancedForecast.css";
 
 export default function AdvancedForecast({ apiKey }) {
   const [newCity, setNewCity] = useState(window.location.pathname.slice(1));
-
+  const [inputValue, setInputValue] = useState("");
   const [forecast, setForcast] = useState([]);
 
   useEffect(() => {
@@ -19,14 +20,34 @@ export default function AdvancedForecast({ apiKey }) {
     });
   }, [newCity, apiKey]);
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    setNewCity(
+      inputValue.slice(0, 1).toUpperCase() +
+        inputValue.slice(1).toLocaleLowerCase()
+    );
+    setInputValue("");
+  }
+
   return (
     <div id="wrp">
       <h1>{newCity}</h1>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          style={{margin: 20}}
+          onChange={(e) => setInputValue(e.target.value)}
+          value={inputValue}
+          label="Enter the name of the city"
+          variant="standard"
+        />
+      </form>
       <div className="wrpCont">
         {forecast.map((day) => {
           return (
             <div key={nanoid()} className="advForcWrap">
-              <div><b>{day.date}</b></div>
+              <div>
+                <b>{day.date}</b>
+              </div>
               <div>
                 {day.hour.map(({ temp_c }, index) => {
                   return (
