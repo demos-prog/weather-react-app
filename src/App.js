@@ -42,6 +42,16 @@ function App() {
         </Link>
       </header>
       <main>
+        <div>
+          <a
+            style={{ marginLeft: 50 }}
+            rel="noreferrer"
+            target="_blank"
+            href="https://www.weatherapi.com/docs/"
+          >
+            API LINK
+          </a>
+        </div>
         <Switch>
           <Route path={url}></Route>
           <Route path="/">
