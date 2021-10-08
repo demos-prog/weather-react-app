@@ -32,7 +32,7 @@ export default function AdvancedForecast({ apiKey }) {
     e.preventDefault();
     setNewCity(
       inputValue.slice(0, 1).toUpperCase() +
-        inputValue.slice(1).toLocaleLowerCase()
+        inputValue.slice(1).toLowerCase()
     );
     setInputValue("");
   }
