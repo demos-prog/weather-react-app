@@ -11,6 +11,7 @@ export default function ButtonsGroup({ setUrl, setCity }) {
     <Box
       sx={{
         display: "flex",
+        marginTop: "30px",
         flexDirection: "column",
         alignItems: "center",
         "& > *": {

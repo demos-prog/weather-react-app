@@ -4,7 +4,6 @@ export default function WeatherToday({ city, temp, humidity, description }) {
   return (
     <div className="wrapperWeatherToday">
       <div className="contetntWeatherToday">
-        <div>Weather today</div>
         <div className="descr">
           <h1>{city}</h1>
         </div>
