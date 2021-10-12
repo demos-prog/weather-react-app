@@ -11,7 +11,7 @@ export default function AdvancedForecast({ apiKey }) {
   useEffect(() => {
     async function getData() {
       let res = await fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${newCity}&days=3`
+        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${newCity}&days=3`
       );
       if (res.ok) {
         return await res.json();
