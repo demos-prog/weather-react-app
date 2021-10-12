@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     async function getData() {
       let res = await fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`
+        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`
       );
       if (res.ok) {
         return await res.json();
