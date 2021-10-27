@@ -18,6 +18,12 @@ function App() {
   const [forecast, setForcast] = useState([]);
   const [url, setUrl] = useState("/" + city);
 
+  const loadComp = (
+    <div className="loaderWrap">
+      <img id="loader" src={loader} alt="Loading"></img>
+    </div>
+  );
+
   useEffect(() => {
     async function getData() {
       let res = await fetch(
@@ -61,13 +67,7 @@ function App() {
               humidity={humidity}
               description={description}
             />
-            <Suspense
-              fallback={
-                <div className="loaderWrap">
-                  <img id="loader" src={loader} alt="Loading"></img>
-                </div>
-              }
-            >
+            <Suspense fallback={loadComp}>
               <Forecast forecast={forecast} />
             </Suspense>
             <div>
