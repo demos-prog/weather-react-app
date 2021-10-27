@@ -24,6 +24,19 @@ function App() {
     </div>
   );
 
+  const link = (
+    <div>
+      <a
+        style={{ marginLeft: 50 }}
+        rel="noreferrer"
+        target="_blank"
+        href="https://www.weatherapi.com"
+      >
+        API LINK
+      </a>
+    </div>
+  );
+
   useEffect(() => {
     async function getData() {
       let res = await fetch(
@@ -70,16 +83,7 @@ function App() {
             <Suspense fallback={loadComp}>
               <Forecast forecast={forecast} />
             </Suspense>
-            <div>
-              <a
-                style={{ marginLeft: 50 }}
-                rel="noreferrer"
-                target="_blank"
-                href="https://www.weatherapi.com"
-              >
-                API LINK
-              </a>
-            </div>
+            {link}
           </Route>
         </Switch>
       </main>
