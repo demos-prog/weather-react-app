@@ -37,16 +37,16 @@ function App() {
     </div>
   );
 
-  useEffect(() => {
-    async function getData() {
-      let res = await fetch(
-        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`
-      );
-      if (res.ok) {
-        return await res.json();
-      }
+  async function getData() {
+    let res = await fetch(
+      `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`
+    );
+    if (res.ok) {
+      return await res.json();
     }
+  }
 
+  useEffect(() => {
     getData().then((data) => {
       if (data) {
         setTemp(data.current.temp_c);
@@ -55,7 +55,7 @@ function App() {
         setForcast(data.forecast.forecastday);
       }
     });
-  }, [city]);
+  }, [city]); //eslint-disable-line
 
   return (
     <Router>
