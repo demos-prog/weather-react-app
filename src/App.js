@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./null_styles.css";
 import "./App.css";
 import ButtonsGroup from "./components/buttonsGroup";
-import Forecast from "./components/forecast";
 import WeatherToday from "./components/weatherToday";
 import AdvancedForecast from "./components/advancedForecast";
+import loader from "./components/images/Spinner-3.gif";
+const Forecast = React.lazy(() => import("./components/forecast"));
 
 const apiKey = "9e6fddaaf5b8444ab06132321210710";
 
@@ -60,7 +61,15 @@ function App() {
               humidity={humidity}
               description={description}
             />
-            <Forecast forecast={forecast} />
+            <Suspense
+              fallback={
+                <div className="loaderWrap">
+                  <img id="loader" src={loader} alt="Loading"></img>
+                </div>
+              }
+            >
+              <Forecast forecast={forecast} />
+            </Suspense>
             <div>
               <a
                 style={{ marginLeft: 50 }}
