@@ -1,19 +1,37 @@
-#wrp{
+#wrp {
+  margin: auto;
+  width: min-content;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.wrpCont{
+.wrpCont {
   display: flex;
   width: 800px;
   justify-content: space-between;
 }
-.advForcWrap{
+.advForcWrap {
   display: flex;
   flex-direction: column;
   align-items: center;
   white-space: nowrap;
   width: min-content;
+}
+
+
+@media (max-width: 880px) {
+  #wrp{
+    margin-top: 15px;
+  }
+  .wrpCont{
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .advForcWrap{
+    margin-bottom: 20px;
+  }
 }

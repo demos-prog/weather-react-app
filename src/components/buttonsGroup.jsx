@@ -19,7 +19,11 @@ export default function ButtonsGroup({ setUrl, setCity }) {
         },
       }}
     >
-      <ButtonGroup size="large" aria-label="large button group">
+      <ButtonGroup
+        orientation={window.innerWidth > 400 ? "horizontal" : "vertical"}
+        size="large"
+        aria-label="large button group"
+      >
         <Button value="Minsk" onClick={handleChangeCity}>
           Minsk
         </Button>
